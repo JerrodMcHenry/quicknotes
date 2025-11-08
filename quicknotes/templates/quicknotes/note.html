@@ -1,0 +1,31 @@
+{% extends "quicknotes/quicknotes.html" %}
+{% block title %}My Notes{% endblock %}
+{% block body %}
+
+<div class="notes-list">
+    {% for n in notes %}
+        <div class="note">
+            <h2>{{ n.title }}</h2>
+            <div class="note-content">{{ n.content|linebreaksbr }}</div>
+            <div class="note-meta">
+                {% if n.tag %}<span class="note-tag">{{ n.tag }}</span>{% endif %}
+                <span class="note-date">{{ n.created|date:"M d, Y H:i" }}</span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<form action="{% url 'edit' note.id %}" method="POST", enctype="multipart/form-data" class="edit-form">
+    {% csrf_token %}
+   {{ form }} 
+   <button class="btn btn-submit">Save Note</button>
+</form>
+
+<form action="{% url 'delete' note.id %}" method="POST", enctype="multipart/form-data">
+    {% csrf_token %}
+   <button class="btn btn-delete">delete</button>
+</form>
+    
+   <a href="{% url 'notes' %}" class="btn btn-allnotes">← All notes</a>
+
+{% endblock %}
