@@ -1,0 +1,310 @@
+/* General styles */
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #1976D2;
+    --accent-color: #FF4081;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --danger-color: #F44336;
+    --info-color: #00BCD4;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --gradient: linear-gradient(90deg, #2196F3 0%, #FF4081 100%);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--background-color);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background-image: radial-gradient(circle at 20% 20%, #e3f2fd 0%, transparent 60%), radial-gradient(circle at 80% 80%, #fce4ec 0%, transparent 60%);
+}
+
+/* Container styles */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+/* Form styles */
+form {
+    background: var(--card-bg);
+    padding: 32px 28px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    border-top: 4px solid var(--accent-color);
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0;
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 17px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: #fafafa;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 64, 129, 0.12);
+}
+
+/* Button styles */
+button,
+input[type="submit"] {
+    background: var(--gradient);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after,
+input[type="submit"]::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.08);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    box-shadow: 0 4px 16px rgba(33, 150, 243, 0.16);
+    transform: translateY(-2px) scale(1.03);
+}
+
+button:hover::after,
+input[type="submit"]:hover::after {
+    opacity: 1;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gradient);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    box-shadow: 0 4px 16px rgba(33, 150, 243, 0.16);
+    transform: translateY(-2px) scale(1.03);
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-submit {
+    background: var(--gradient);
+}
+
+.btn-delete {
+    background: var(--danger-color);
+}
+
+.btn-allnotes {
+    background: var(--accent-color);
+    color: #fff;
+    margin-left: 0;
+    margin-top: 18px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.btn-allnotes:hover {
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: #fff;
+}
+
+/* Note styles */
+.note {
+    background: var(--card-bg);
+    padding: 24px;
+    margin-bottom: 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(33, 150, 243, 0.10), var(--shadow);
+    border-left: 8px solid var(--primary-color);
+    transition: box-shadow 0.3s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.note:hover {
+    box-shadow: 0 12px 32px rgba(33, 150, 243, 0.18);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.note h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.35em;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.note-content {
+    margin: 10px 0 0 0;
+    color: #444;
+    font-size: 1.08em;
+    line-height: 1.7;
+    word-break: break-word;
+}
+
+.note-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.98em;
+    color: var(--secondary-color);
+    margin-top: 8px;
+    align-items: center;
+}
+
+.note-tag {
+    background: var(--accent-color);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.92em;
+    font-weight: 600;
+    margin-right: 8px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 1px 4px rgba(255, 64, 129, 0.10);
+}
+
+.note-date {
+    color: var(--info-color);
+    font-size: 0.92em;
+    font-weight: 500;
+}
+
+/* List of notes container */
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 18px;
+}
+
+/* Messages and alerts */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+}
+
+.messages li {
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    background: var(--info-color);
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 188, 212, 0.08);
+}
+
+.messages li.success {
+    background: var(--success-color);
+}
+.messages li.warning {
+    background: var(--warning-color);
+    color: #333;
+}
+.messages li.danger {
+    background: var(--danger-color);
+}
+
+/* Navigation links */
+.nav-links {
+    margin: 24px 0;
+    display: flex;
+    gap: 18px;
+}
+
+.nav-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.08em;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 8px;
+    }
+    .container {
+        padding: 12px;
+    }
+    form {
+        padding: 16px 8px;
+    }
+    input[type="text"],
+    input[type="password"],
+    textarea {
+        padding: 10px;
+    }
+    button,
+    input[type="submit"] {
+        width: 100%;
+        padding: 14px 0;
+    }
+    .note {
+        padding: 14px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
